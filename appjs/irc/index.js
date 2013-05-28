@@ -5,7 +5,7 @@ var ircb = require('ircb')
 var cfg =
   { channel : '#jsconf'
   , host    : 'irc.freenode.org'
-  , nick    : 'jsconf_training'
+  , nick    : 'jsconf'
   , name    : 'jsconf'
   }
   ;
@@ -46,7 +46,7 @@ connectToIRC(function (err, ircb) {
   irc = ircb;
   irc.connected = true;
   irc.on('message', function (who, where, wat) {
-    if(/krtc/.test(who)) return; // ignore other bots
+    if(/jsconf_training/.test(who)) return; // ignore other bots
     var match = wat.match(/#[a-z0-9]{5,6}/);
     if(match) {
       var uuid = match[0];
